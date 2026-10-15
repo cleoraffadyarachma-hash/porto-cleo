@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cleo Raffadya Rachma | Portfolio & CV</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-dark: #0f111a;
+      --card-bg: #181b28;
+      --accent-neon: #7928ca;
+      --accent-cyan: #00dfd8;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(121, 40, 202, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 223, 216, 0.15) 0%, transparent 40%);
+    }
+
+    .container {
+      max-width: 950px;
+      width: 100%;
+      background: var(--card-bg);
+      border-radius: 24px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      background: rgba(255, 255, 255, 0.02);
+      border-right: 1px solid var(--border-color);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .profile-header {
+      text-align: center;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-neon), var(--accent-cyan));
+      padding: 3px;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      background: var(--bg-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--accent-cyan);
+    }
+
+    .profile-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .profile-header p {
+      color: var(--accent-cyan);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .info-item i {
+      color: var(--accent-cyan);
+      margin-top: 4px;
+      width: 16px;
+    }
+
+    .info-content label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .info-content span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    /* Main Content Styling */
+    .main-content {
+      padding: 2.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+      margin-left: 0.5rem;
+    }
+
+    /* Gamer/Profile Highlight Box */
+    .profile-card {
+      background: linear-gradient(135deg, rgba(121, 40, 202, 0.1), rgba(0, 223, 216, 0.05));
+      border: 1px solid rgba(121, 40, 202, 0.3);
+      padding: 1.5rem;
+      border-radius: 16px;
+      position: relative;
+    }
+
+    .profile-card p {
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .badge-immortal {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(90deg, var(--accent-neon), var(--accent-cyan));
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      letter-spacing: 1px;
+    }
+
+    /* Timeline Styling for Education */
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      bottom: 5px;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.85rem;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 10px var(--accent-cyan);
+    }
+
+    .timeline-year {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar / Personal Details -->
+    <aside class="sidebar">
+      <div class="profile-header">
+        <div class="avatar-wrapper">
+          <div class="avatar">
+            <i class="fa-solid fa-palette"></i>
+          </div>
+        </div>
+        <h1>Cleo Raffadya</h1>
+        <p>Graphic Designer</p>
+      </div>
+
+      <div class="info-list">
+        <div class="info-item">
+          <i class="fa-solid fa-cake-candles"></i>
+          <div class="info-content">
+            <label>TTL</label>
+            <span>Tangerang, 29 Juni 2009</span>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div class="info-content">
+            <label>Alamat</label>
+            <span>Jl. Tanah Merah, Kp. Maruga RT 06/RW 04</span>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-phone"></i>
+          <div class="info-content">
+            <label>Telepon</label>
+            <span>123-456-7890</span>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div class="info-content">
+            <label>Email</label>
+            <span>cleoraffadya@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-user"></i>
+          <div class="info-content">
+            <label>Gender / Agama</label>
+            <span>Perempuan / Islam</span>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-flag"></i>
+          <div class="info-content">
+            <label>Status / WNI</label>
+            <span>Belum Menikah / Indonesia</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content / Profile & Education -->
+    <main class="main-content">
+      <!-- Profil Singkat -->
+      <section>
+        <h2 class="section-title"><i class="fa-solid fa-user-gear"></i> Profil Pribadi</h2>
+        <div class="profile-card">
+          <p>
+            Saya orangnya sangat bertanggung jawab penuh dan senantiasa memiliki keinginan kuat untuk mempelajari hal-hal baru. Berdedikasi tinggi, konsisten, dan terbiasa dengan kompetisi kompetitif hingga mencapai rank <span class="badge-immortal"><i class="fa-solid fa-crown"></i> IMMORTAL</span> di setiap season.
+          </p>
+        </div>
+      </section>
+
+      <!-- Pendidikan -->
+      <section>
+        <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2014</div>
+            <div class="timeline-title">Universitas Brocelle</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2013</div>
+            <div class="timeline-title">Universitas Rimbero</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">Lulus 2010</div>
+            <div class="timeline-title">SMK Puspita Husada</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">SMPN 09</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">SDN 03 Serua</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>
