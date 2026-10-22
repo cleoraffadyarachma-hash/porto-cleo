@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cleo Raffadya Rachma | Portfolio & CV</title>
+  <meta name="description" content="Portfolio dan CV Cleo Raffadya Rachma - Graphic Designer">
   <!-- Google Fonts & Font Awesome Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -14,9 +15,11 @@
       --card-bg: #181b28;
       --accent-neon: #7928ca;
       --accent-cyan: #00dfd8;
+      --accent-pink: #ff6b9d;
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
       --border-color: rgba(255, 255, 255, 0.08);
+      --gradient-primary: linear-gradient(135deg, var(--accent-neon), var(--accent-cyan));
     }
 
     * {
@@ -24,6 +27,10 @@
       margin: 0;
       padding: 0;
       font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -40,15 +47,27 @@
     }
 
     .container {
-      max-width: 950px;
+      max-width: 1100px;
       width: 100%;
       background: var(--card-bg);
       border-radius: 24px;
       border: 1px solid var(--border-color);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       overflow: hidden;
       display: grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 340px 1fr;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Sidebar Styling */
@@ -67,12 +86,22 @@
 
     .avatar-wrapper {
       position: relative;
-      width: 120px;
-      height: 120px;
+      width: 140px;
+      height: 140px;
       margin: 0 auto 1.5rem;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent-neon), var(--accent-cyan));
-      padding: 3px;
+      background: var(--gradient-primary);
+      padding: 4px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(121, 40, 202, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(0, 223, 216, 0.6);
+      }
     }
 
     .avatar {
@@ -83,15 +112,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--accent-cyan);
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .profile-header h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
       margin-bottom: 0.25rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .profile-header p {
@@ -100,6 +140,35 @@
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--gradient-primary);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(121, 40, 202, 0.3);
     }
 
     .info-list {
@@ -112,6 +181,11 @@
       display: flex;
       align-items: flex-start;
       gap: 0.8rem;
+      transition: transform 0.2s ease;
+    }
+
+    .info-item:hover {
+      transform: translateX(5px);
     }
 
     .info-item i {
@@ -134,24 +208,38 @@
       word-break: break-word;
     }
 
+    .info-content a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .info-content a:hover {
+      color: var(--accent-pink);
+    }
+
     /* Main Content Styling */
     .main-content {
       padding: 2.5rem 2.5rem;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 2.5rem;
     }
 
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       position: relative;
+    }
+
+    .section-title i {
+      color: var(--accent-cyan);
     }
 
     .section-title::after {
@@ -162,17 +250,23 @@
       margin-left: 0.5rem;
     }
 
-    /* Gamer/Profile Highlight Box */
+    /* Profile Card */
     .profile-card {
       background: linear-gradient(135deg, rgba(121, 40, 202, 0.1), rgba(0, 223, 216, 0.05));
       border: 1px solid rgba(121, 40, 202, 0.3);
-      padding: 1.5rem;
+      padding: 1.8rem;
       border-radius: 16px;
       position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(121, 40, 202, 0.2);
     }
 
     .profile-card p {
-      line-height: 1.6;
+      line-height: 1.7;
       font-size: 0.95rem;
     }
 
@@ -180,22 +274,65 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: linear-gradient(90deg, var(--accent-neon), var(--accent-cyan));
+      background: var(--gradient-primary);
       color: #fff;
       font-weight: 800;
       font-size: 0.75rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 6px;
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
       letter-spacing: 1px;
+      animation: glow 2s ease-in-out infinite;
     }
 
-    /* Timeline Styling for Education */
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(121, 40, 202, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(0, 223, 216, 0.8);
+      }
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      background: rgba(121, 40, 202, 0.1);
+      border-color: var(--accent-neon);
+      transform: translateY(-3px);
+    }
+
+    .skill-item i {
+      font-size: 1.8rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-item span {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Timeline Styling */
     .timeline {
       position: relative;
       padding-left: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.8rem;
     }
 
     .timeline::before {
@@ -210,34 +347,143 @@
 
     .timeline-item {
       position: relative;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      background: rgba(0, 223, 216, 0.05);
+      border-color: var(--accent-cyan);
+      transform: translateX(5px);
     }
 
     .timeline-item::before {
       content: '';
       position: absolute;
       left: -1.85rem;
-      top: 4px;
-      width: 10px;
-      height: 10px;
+      top: 1.2rem;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background: var(--accent-cyan);
-      box-shadow: 0 0 10px var(--accent-cyan);
+      box-shadow: 0 0 15px var(--accent-cyan);
     }
 
     .timeline-year {
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--accent-cyan);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
     }
 
     .timeline-title {
       font-size: 1rem;
       font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      background: rgba(121, 40, 202, 0.1);
+      border-color: var(--accent-neon);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(121, 40, 202, 0.2);
+    }
+
+    .project-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--accent-cyan);
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(0, 223, 216, 0.1);
+      border: 1px solid rgba(0, 223, 216, 0.3);
+      border-radius: 6px;
+      color: var(--accent-cyan);
+    }
+
+    /* Contact Buttons */
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn.primary {
+      background: var(--gradient-primary);
+      color: #fff;
+      border: none;
+    }
+
+    .contact-btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(121, 40, 202, 0.4);
+    }
+
+    .contact-btn.secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-cyan);
     }
 
     /* Responsive Design */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .container {
         grid-template-columns: 1fr;
       }
@@ -245,6 +491,33 @@
       .sidebar {
         border-right: none;
         border-bottom: 1px solid var(--border-color);
+        padding: 2rem 1.5rem;
+      }
+
+      .main-content {
+        padding: 2rem 1.5rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+      }
+
+      .contact-btn {
+        justify-content: center;
       }
     }
   </style>
@@ -262,6 +535,18 @@
         </div>
         <h1>Cleo Raffadya</h1>
         <p>Graphic Designer</p>
+        
+        <div class="social-links">
+          <a href="https://instagram.com/cleoraffadya" class="social-link" target="_blank" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://linkedin.com/in/cleoraffadya" class="social-link" target="_blank" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/cleoraffadyarachma-hash" class="social-link" target="_blank" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
       </div>
 
       <div class="info-list">
@@ -285,7 +570,7 @@
           <i class="fa-solid fa-phone"></i>
           <div class="info-content">
             <label>Telepon</label>
-            <span>123-456-7890</span>
+            <span>+62 812-3456-7890</span>
           </div>
         </div>
 
@@ -293,7 +578,7 @@
           <i class="fa-solid fa-envelope"></i>
           <div class="info-content">
             <label>Email</label>
-            <span>cleoraffadya@gmail.com</span>
+            <a href="mailto:cleoraffadya@gmail.com">cleoraffadya@gmail.com</a>
           </div>
         </div>
 
@@ -315,7 +600,7 @@
       </div>
     </aside>
 
-    <!-- Main Content / Profile & Education -->
+    <!-- Main Content -->
     <main class="main-content">
       <!-- Profil Singkat -->
       <section>
@@ -327,32 +612,110 @@
         </div>
       </section>
 
+      <!-- Skills -->
+      <section>
+        <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Keahlian</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fa-solid fa-pen-nib"></i>
+            <span>Graphic Design</span>
+          </div>
+          <div class="skill-item">
+            <i class="fa-solid fa-image"></i>
+            <span>Photoshop</span>
+          </div>
+          <div class="skill-item">
+            <i class="fa-solid fa-vector-square"></i>
+            <span>Illustrator</span>
+          </div>
+          <div class="skill-item">
+            <i class="fa-solid fa-palette"></i>
+            <span>UI/UX Design</span>
+          </div>
+          <div class="skill-item">
+            <i class="fa-solid fa-camera"></i>
+            <span>Photography</span>
+          </div>
+          <div class="skill-item">
+            <i class="fa-solid fa-video"></i>
+            <span>Video Editing</span>
+          </div>
+        </div>
+      </section>
+
       <!-- Pendidikan -->
       <section>
         <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan</h2>
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-year">2014</div>
-            <div class="timeline-title">Universitas Brocelle</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-year">2013</div>
-            <div class="timeline-title">Universitas Rimbero</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-year">Lulus 2010</div>
+            <div class="timeline-year">2024 - Sekarang</div>
             <div class="timeline-title">SMK Puspita Husada</div>
+            <div class="timeline-desc">Jurusan Desain Grafis</div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-title">SMPN 09</div>
+            <div class="timeline-year">2021 - 2024</div>
+            <div class="timeline-title">SMPN 09 Tangerang Selatan</div>
+            <div class="timeline-desc">Sekolah Menengah Pertama</div>
           </div>
 
           <div class="timeline-item">
+            <div class="timeline-year">2015 - 2021</div>
             <div class="timeline-title">SDN 03 Serua</div>
+            <div class="timeline-desc">Sekolah Dasar</div>
           </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section>
+        <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> Proyek & Portfolio</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Brand Identity Design</h3>
+            <p>Desain identitas visual lengkap untuk startup lokal termasuk logo, color palette, dan guidelines.</p>
+            <div class="project-tags">
+              <span class="project-tag">Illustrator</span>
+              <span class="project-tag">Branding</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Social Media Graphics</h3>
+            <p>Kumpulan desain konten social media untuk kampanye marketing dengan engagement tinggi.</p>
+            <div class="project-tags">
+              <span class="project-tag">Photoshop</span>
+              <span class="project-tag">Marketing</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>UI Design Mockup</h3>
+            <p>Desain antarmuka aplikasi mobile dengan fokus pada user experience dan visual appeal.</p>
+            <div class="project-tags">
+              <span class="project-tag">Figma</span>
+              <span class="project-tag">UI/UX</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section>
+        <h2 class="section-title"><i class="fa-solid fa-paper-plane"></i> Hubungi Saya</h2>
+        <div class="contact-buttons">
+          <a href="mailto:cleoraffadya@gmail.com" class="contact-btn primary">
+            <i class="fa-solid fa-envelope"></i>
+            Kirim Email
+          </a>
+          <a href="https://wa.me/6281234567890" class="contact-btn secondary" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp
+          </a>
+          <a href="https://instagram.com/cleoraffadya" class="contact-btn secondary" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+            Instagram
+          </a>
         </div>
       </section>
     </main>
